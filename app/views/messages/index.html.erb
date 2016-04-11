@@ -11,12 +11,13 @@
       </tr>
     </thead>
     <tbody>
-    <tr>
+      
     <% @messages.each do |message| %>
+    <tr>
       <th><span class="label label-info"><%= message.name %></span></th>
       <th><span class="label label-success"><%= message.body %></span></th>
     </tr>
-      <br>
+      
     <% end %>
     </tbody>
   </table>
