@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_action :set_message, only: [:edit, :update]
   def index
     @message = Message.new
     # Messageを全て取得する。
