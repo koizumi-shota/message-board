@@ -3,6 +3,7 @@
     メッセージ一覧
   </div>
 
+
   <div class="panel-body">
     <% @messages.each do |message| %>
       <span class="label label-info"><%= message.name %></span>
@@ -11,8 +12,49 @@
          <%= link_to "destroy" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
         )
       <br>
+
+    
+  <table class="table">
+    <thead>
+      <tr>
+        <th>名前</th>
+        <th>内容</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+    <% @messages.each do |message| %>
+    <tr>
+      <th><span class="label label-info"><%= message.name %></span></th>
+      <th><span class="label label-success"><%= message.body %></span></th>
+    </tr>
+      
+
     <% end %>
-  </div>
+    </tbody>
+  </table>
 </div>
 
+
 <%= render 'form' %>
+
+<%= form_for(@message, html: {class: "form-horizontal"}) do |f| %>
+  <div class="form-group">
+    <label for="message_name" class="control-label col-md-2">名前:</label>
+    <div class="col-md-8">
+      <%= f.text_field :name, :class => "form-control" %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="message_name" class="control-label col-md-2">内容:</label>
+    <div class="col-md-8">
+      <%= f.text_area :body, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary">送信</button>
+    </div>
+  </div>
+<% end %>
