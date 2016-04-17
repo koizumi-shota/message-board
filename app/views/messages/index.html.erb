@@ -20,6 +20,7 @@
       <tr>
         <th>名前</th>
         <th>内容</th>
+        <th>年齢</th>
       </tr>
     </thead>
     <tbody>
@@ -28,14 +29,14 @@
     <tr>
       <th><span class="label label-info"><%= message.name %></span></th>
       <th><span class="label label-success"><%= message.body %></span></th>
+      <th><span class="label label-warning"><%= message.age %></span></th>
     </tr>
       
 
     <% end %>
     </tbody>
   </table>
-
-<% #部分テンプレートを読み込んでいる %>
   </div>
 </div>
+<% #部分テンプレートを読み込んでいる %>
 <%= render 'form' %>
